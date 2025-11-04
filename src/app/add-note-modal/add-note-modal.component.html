@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>{{ isEditing ? 'Editar Nota' : 'Nova Nota' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" [strong]="true" [disabled]="!noteForm.valid">
+        Guardar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="noteForm">
+    <ion-item>
+      <ion-label position="stacked">Título da nota</ion-label>
+      <ion-input type="text" placeholder="Escreva aqui a sua nota" formControlName="title" required></ion-input>
+    </ion-item>
+
+    <ion-note color="danger" *ngIf="noteForm.get('title')?.invalid && noteForm.get('title')?.touched">
+      O título deve ter pelo menos 3 caracteres
+    </ion-note>
+  </form>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ isNew ? 'Nova Nota' : 'Editar Nota' }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="danger">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+                Guardar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-label position="stacked">Título da nota</ion-label>
+        <ion-input type="text" placeholder="Escreva aqui a sua nota"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Prioridade</ion-label>
+        <ion-select interface="action-sheet" placeholder="Selecione a prioridade">
+            <ion-select-option value="high">Alta</ion-select-option>
+            <ion-select-option value="medium">Média</ion-select-option>
+            <ion-select-option value="low">Baixa</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Estado</ion-label>
+        <ion-select interface="action-sheet" placeholder="Selecione o estado">
+            <ion-select-option value="todo">TO DO </ion-select-option>
+            <ion-select-option value="done">DONE</ion-select-option>
+        </ion-select>
+    </ion-item>
+</ion-content>
